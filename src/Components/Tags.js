@@ -61,15 +61,7 @@ const Tags = ({ tags, setTags, notes, setNotes }) => {
 
   return (
     <div className="tags-container">
-      <button
-        className="add-note primary-btn"
-        style={{ backgroundColor: "#300000 " }}
-        onClick={() => {
-          setShow((prev) => !prev);
-        }}
-      >
-        {show ? "Hide" : "Show"} Tags
-      </button>
+     
       {show && showTags()}
     </div>
   );

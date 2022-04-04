@@ -3,8 +3,18 @@ import Header from "./Components/Header";
 import Form from "./Components/Form";
 import Tags from "./Components/Tags";
 import Notes from "./Components/Notes";
-
+import { Routes, Route } from "react-router-dom"
 import "./App.css";
+import Testing from "./Components/testing";
+import { Link } from "react-router-dom";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 const data = [
   {
@@ -68,26 +78,39 @@ function App() {
       className="App"
       style={{ backgroundColor: `${color}`, color: `${fontcolor}` }}
     >
-      <button className="button" onClick={darkModeHandler}>
-        DARK MODE
-      </button>
-
+      <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+            
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          </Typography>
+        <Link style={{color:"white",textDecoration:"none"}}  to="/"><Button color="inherit">Home</Button></Link>
+        <Link style={{color:"white",textDecoration:"none"}}  to="tags"><Button color="inherit">Tags</Button></Link>
+        <Link style={{color:"white",textDecoration:"none"}}  to="notes"><Button color="inherit">Notes</Button></Link>
+        </Toolbar>
+      </AppBar>
+    </Box>
       <Header />
+      <Routes>
+        <Route path="/" element={ <Form
+          notes={notes}
+          setNotes={(val) => setNotes(val)}
+          tags={tags}
+          setTags={(val) => setTags(val)}
+        /> } />
+        <Route path="tags" element={ <Tags
+          tags={tags}
+          setTags={(val) => setTags(val)}
+          notes={notes}
+          setNotes={(val) => setNotes(val)}
+        /> } />
+        <Route path="notes" element={ <Notes notes={notes} setNotes={(val) => setNotes(val)} /> } />
+      </Routes>
+
       <div className="form-div">
-        <Form
-          notes={notes}
-          setNotes={(val) => setNotes(val)}
-          tags={tags}
-          setTags={(val) => setTags(val)}
-        />
+        
         <h2>{error}</h2>
-        <Tags
-          tags={tags}
-          setTags={(val) => setTags(val)}
-          notes={notes}
-          setNotes={(val) => setNotes(val)}
-        />
-        <Notes notes={notes} setNotes={(val) => setNotes(val)} />
+        
       </div>
     </div>
   );

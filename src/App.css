@@ -31,7 +31,7 @@ textarea:focus {
 }
 
 .form {
-  min-width: 21rem;
+  width: 21rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
