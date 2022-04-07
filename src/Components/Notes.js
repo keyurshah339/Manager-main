@@ -2,8 +2,7 @@ import Note from "./Note";
 
 const Notes = ({ notes, setNotes }) => {
   return (
-    <div className="container">
-      <span className="add-note primary-btn">Notes</span>
+    <div className="bordered-container">
       <div className="notes-container">
         <span className="add-note primary-btn">Pinned Notes</span>
 
