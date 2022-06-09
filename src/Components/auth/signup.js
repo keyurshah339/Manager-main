@@ -35,7 +35,7 @@ export  const Signup = () => {
 
       console.log('inside signMeUp')
 
-     await axios.post('https://universely.herokuapp.com/signup', {username: username, password: pass, email: email, firstName: firstName,lastName:lastName})
+     await axios.post('https://agile-headland-48240.herokuapp.com/signup', {username: username, password: pass, email: email, firstName: firstName,lastName:lastName})
       .then(res => {
         reRoute()
       })
