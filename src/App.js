@@ -14,6 +14,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import MyAuth from "./Components/authGuard"
+import {AuthCheck} from "./Components/auth/login"
+import {Signup} from "./Components/auth/signup"
+import { useDataContext } from "./Components/context";
+import { useNavigate } from "react-router-dom";
+
 
 
 const data = [
@@ -51,6 +57,9 @@ const tagsData = [
 ];
 
 function App() {
+  const {setlogin,login} = useDataContext();
+  const navigate = useNavigate();
+
   const [dark, setdark] = useState(false);
   const [color, setcolor] = useState("");
   const [fontcolor, setfontcolor] = useState("");
@@ -72,13 +81,20 @@ function App() {
   const [notes, setNotes] = useState(data);
   const [tags, setTags] = useState(tagsData);
 
+
+  function logMeOut(){
+    setlogin(false)
+    navigate("/login", { replace: true });
+
+  }
+
   // console.log(notes)
   return (
     <div
       className="App"
       style={{ backgroundColor: `${color}`, color: `${fontcolor}` }}
     >
-      <Box sx={{ flexGrow: 1 }}>
+     {login == true && <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
             
@@ -87,24 +103,41 @@ function App() {
         <Link style={{color:"white",textDecoration:"none"}}  to="/"><Button color="inherit">Home</Button></Link>
         <Link style={{color:"white",textDecoration:"none"}}  to="tags"><Button color="inherit">Tags</Button></Link>
         <Link style={{color:"white",textDecoration:"none"}}  to="notes"><Button color="inherit">Notes</Button></Link>
+        <Button variant="contained" color="error" onClick={logMeOut}>LOGOUT</Button>
         </Toolbar>
       </AppBar>
-    </Box>
-      <Header />
+    </Box>}
+      {login == true && <Header />}
       <Routes>
-        <Route path="/" element={ <Form
+        <Route path="/" element={ 
+        <MyAuth>
+        <Form
           notes={notes}
           setNotes={(val) => setNotes(val)}
           tags={tags}
           setTags={(val) => setTags(val)}
-        /> } />
-        <Route path="tags" element={ <Tags
+        /> 
+        </MyAuth>
+        } />
+
+        <Route path="tags" element={ 
+        <MyAuth>
+        <Tags
           tags={tags}
           setTags={(val) => setTags(val)}
           notes={notes}
           setNotes={(val) => setNotes(val)}
-        /> } />
-        <Route path="notes" element={ <Notes notes={notes} setNotes={(val) => setNotes(val)} /> } />
+        /> 
+        </MyAuth>
+        } />
+        <Route path="notes" element={
+          <MyAuth>
+          <Notes notes={notes} setNotes={(val) => setNotes(val)} /> 
+          </MyAuth>
+          } />
+          <Route path="/login" element={<AuthCheck/>} />
+          <Route path="/signup" element={<Signup/>} />
+
       </Routes>
 
       <div className="form-div">

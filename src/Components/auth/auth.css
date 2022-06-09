@@ -1,0 +1,138 @@
+.main {
+    font-family: Century Gothic;
+    background: #0a3a5c;
+    overflow: hidden;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .button {
+    background-color: #2bcbba;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    opacity: 1;
+  }
+  
+  .info-section {
+    padding-top: 30px;
+    border-right: 1px solid #efefef;
+    vertical-align: middle;
+    max-width: 300px;
+    color: #2bcbba;
+    font-size: 20px;
+    padding: 18px 0;
+    padding-right: 1rem;
+  }
+  .subtext{
+    color: #778ca3;
+    font-size: 16px;
+  }
+  p {
+    
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .lbl-red {
+    color: #e75d56;
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .main-container {
+    width: 700px;
+    height: 350px;
+    margin: auto;
+    display: flex;
+  }
+  
+  .heroimg{
+    vertical-align: middle;
+    width: 150px;
+    margin: auto;
+  
+  }
+  
+  .copyright{
+    width: 100%;
+      color: #778ca3;
+      line-height: 10px;
+      font-size: 15px;
+      text-align: center;
+  }
+  
