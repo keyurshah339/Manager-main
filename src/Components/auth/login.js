@@ -6,6 +6,8 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { Redirect, useHistory} from 'react-router-dom';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 
@@ -20,6 +22,8 @@ export const AuthCheck = () => {
 
   const {login,setlogin} = useDataContext();
 
+  const [loading,setloading] = useState(false);
+
     
   
     const [username,setusername]=useState('')
@@ -29,7 +33,8 @@ export const AuthCheck = () => {
 
     async function Authtry() {
 
-      console.log('inside authtry')
+    setloading(true)
+      
 
      await axios.post('https://agile-headland-48240.herokuapp.com/login', {username: username, password: pass})
       .then(res => {
@@ -41,8 +46,25 @@ export const AuthCheck = () => {
       .catch(error => {
         seterr(true)
       })
-
+      .finally(() => setloading(false))
   }
+
+  async function GuestLogin() {
+
+    setloading(true)
+   await axios.post('https://agile-headland-48240.herokuapp.com/login', {username: 'admin', password: 'admin'})
+    .then(res => {
+
+
+      setlogin(true)
+      reRoute()
+    })
+    .catch(error => {
+      seterr(true)
+    })
+    .finally(() => setloading(false))
+
+}
 
  function reRoute(){
   console.log('inside reRoute')
@@ -138,11 +160,16 @@ export const AuthCheck = () => {
                 Login
               </Button>
             </div>
+            <Button onClick={GuestLogin} >
+                Guest Login
+              </Button>
           </div>
         </div>
 
         <div style={{ margin: "auto" }}>
-       
+        {loading == true && <Box sx={{ display: 'flex' }}>
+      <CircularProgress color="success" />
+    </Box>}
         </div>
       </div>
     </div>
