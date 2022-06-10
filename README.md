@@ -1,4 +1,4 @@
-# Note-Keep
+# Manager
  
-Google Keep is a note-taking service 
+Manager is a note-taking service 
 -Component Library Used MUI
