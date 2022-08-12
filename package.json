@@ -1,57 +1,38 @@
 {
-  "name": "google-keep",
+  "name": "vite-react-tailwind-rtk",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.3",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.27.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.1",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "4.0.2",
-    "react-uuid": "^1.0.2",
-    "uuid": "^8.3.2",
-    "web-vitals": "^1.0.1"
+  "author": {
+    "name": "James Wallen-Jones"
   },
+  "license": "MIT",
+  "description": "Vite, React, Tailwind, Redux Toolkit Template\n",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "react-scripts start"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "axios": "^0.21.1",
+    "history": "^5.0.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-icons": "^4.2.0",
+    "react-loader-spinner": "^4.0.0",
+    "react-redux": "^7.2.2",
+    "react-router": "^6.0.0-beta.2",
+    "react-router-dom": "^6.0.0-beta.2"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
-  },
-  "keywords": [],
-  "description": ""
+    "@tailwindcss/jit": "^0.1.18",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.25.1",
+    "postcss": "^8.3.6",
+    "postcss-nested": "^5.0.5",
+    "tailwindcss": "^2.0.3",
+    "vite": "^2.0.5"
+  }
 }
